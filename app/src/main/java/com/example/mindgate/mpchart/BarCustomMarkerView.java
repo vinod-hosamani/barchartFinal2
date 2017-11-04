@@ -34,7 +34,8 @@ public class BarCustomMarkerView extends MarkerView {
     }
 
     @Override
-    public MPPointF getOffset() {
+    public MPPointF getOffset()
+    {
         return new MPPointF(-(getWidth() / 2), -getHeight());
     }
 }

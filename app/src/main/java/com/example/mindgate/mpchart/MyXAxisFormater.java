@@ -22,12 +22,12 @@ public class MyXAxisFormater implements IAxisValueFormatter {
 
     @Override
     public String getFormattedValue(float value, AxisBase axis) {
-        if (weeks != null && weeks.length > (int) value) {
+        if (weeks != null && weeks.length > (int) value)
+        {
 //            return days[(int) value]+"\n"+weeks[(int) value];
             return days[(int) value]+"\n"+weeks[(int) value];
-        } else
+        }
+        else
             return "";
     }
-
-
 }

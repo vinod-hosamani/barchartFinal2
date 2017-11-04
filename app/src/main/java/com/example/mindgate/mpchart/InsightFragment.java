@@ -146,7 +146,13 @@ public class InsightFragment extends android.support.v4.app.Fragment implements 
         barDataSet.notifyDataSetChanged();
         barDataSet.setDrawValues(false);
         barDataSet.setColor(getResources().getColor(R.color.color_acent));
-        barDataSet.setHighLightColor(Color.rgb(255,64,129));
+
+       // barDataSet.setHighLightColor(Color.rgb(255,64,129));
+
+      //  barDataSet.setBarShadowColor(Integer.parseInt(getResources().getString(R.color.color_acent)));
+        barDataSet.setHighLightAlpha(0);
+
+
 
         barData = new BarData(barDataSet);
         barData.notifyDataChanged();
@@ -158,6 +164,8 @@ public class InsightFragment extends android.support.v4.app.Fragment implements 
         barData.setBarWidth(0.25f);
 
 
+
+
         //barChart.setMaxHighlightDistance(50);
         // barChart.highlightValue(10f,0);
         barChart.animateXY(3000, 3000);
@@ -167,6 +175,14 @@ public class InsightFragment extends android.support.v4.app.Fragment implements 
 
         barChart.setBackgroundColor(Color.WHITE);
         barChart.setDrawBarShadow(false);
+        barChart.setDrawValueAboveBar(true);
+        barChart.setExtraOffsets(0f,25f,0f,0f);
+
+
+        //barChart.getData().setHighlightEnabled(false);
+
+      //  barChart.setHighlightFullBarEnabled(false);
+       // barChart.setBackgroundColor(getResources().getColor(R.color.color_transfeerent));
 
         XAxis xAxis = barChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE);
@@ -176,28 +192,67 @@ public class InsightFragment extends android.support.v4.app.Fragment implements 
         xAxis.setDrawGridLines(false);
         xAxis.setMultiLineLabel(true);
         xAxis.setLabelCount(7);
+
+      //  XAxis xAxis1=barChart.getXAxis();
+       // xAxis1.setPosition(XAxis.XAxisPosition.TOP_INSIDE);
+
+
+
+       // xAxis.setYOffset(-12f);
+        //xAxis.setMultiLineLabel(true);
+        //xAxis.getLabelRotationAngle();
+        //xAxis.setDrawLimitLinesBehindData(true);
+
+
+
+      //  xAxis.setEnabled(true);
+       // xAxis.setDrawAxisLine(true);
+       // xAxis.setDrawLabels(true);
+
+
+       // xAxis.setYOffset(-13f);
 //        xAxis.setAxisLineWidth(40);
 //        xAxis.setGridLineWidth(40);
         xAxis.setValueFormatter(new MyXAxisFormater(weeks, days));
 
+
         barChart.setFitBars(true);
+        barChart.setDrawBarShadow(false);
+        barChart.getAxisRight().setStartAtZero(true);
+       // barChart.setExtraOffsets(0,25,0,0);
+
+      //  barChart.setDrawValueAboveBar(true);
+
         //Accessing YAxis
 
         //Code for hiding right side yAxis details
         YAxis yAxisRight = barChart.getAxisRight();
         yAxisRight.enableGridDashedLine(10f, 10f, 0);
         yAxisRight.setEnabled(false);
+        yAxisRight.setStartAtZero(true);
+
+      //  yAxisRight.setDrawZeroLine(true);
+
+
 
         //Code for hiding left side straight bar
         YAxis yAxisLeft = barChart.getAxisLeft();
         yAxisLeft.enableGridDashedLine(10f, 10f, 0);
         yAxisLeft.setDrawAxisLine(false);
+        yAxisRight.setStartAtZero(true);
+     //   yAxisLeft.setDrawZeroLine(true);
+
 
        // yAxisLeft.setLabelCount(5,true);
        // yAxisLeft.setGranularityEnabled(true);
         yAxisLeft.setGranularity(25);
         yAxisLeft.setAxisMaximum(100);
-       // yAxisLeft.setAxisMinimum(0);
+        yAxisLeft.setAxisMinimum(0);
+        yAxisLeft.setSpaceTop(25f);
+
+        yAxisLeft.setStartAtZero(true);
+
+
 
 
         Legend legend = barChart.getLegend();
